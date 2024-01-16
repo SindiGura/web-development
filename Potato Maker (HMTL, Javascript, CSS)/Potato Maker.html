@@ -1,0 +1,104 @@
+
+
+<!-- Sindi Gurakuqi -->
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles5.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <title>Potato</title>
+    </head>
+
+    <body>
+        <br>
+        <img src="images/Body.png" alt="body" class="body">
+        <img src="images/Nose.png" alt="nose" class="nose">
+        <img src="images/Mouth.png" alt="mouth" class="mouth">
+        <img src="images/Eyes2.png" alt="eyes" class="eyes">
+        <img src="images/hat2.png" alt="hat" class="hat">
+
+        <button class="toggle-button" data-target="nose">Nose</button>
+        <button class="toggle-button" data-target="mouth">Mouth</button>
+        <button class="toggle-button" data-target="eyes">Eyes</button>
+        <button class="toggle-button" data-target="hat">Hat</button>
+        <button id="save-button">Save Image</button>
+
+        <div class="shrink-icon-container">
+            <div class="shrink-icon" id="shrink-icon">
+                <img src="images/icon.png" alt="Shrink Icon">
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                function increaseSize(element) {
+                    element.stop().animate({
+                        width: '1500px',
+                        height: '1000px'
+                    }, 'slow');
+                }
+
+                $("#shrink-icon").click(function(event) {
+                    event.stopPropagation();
+                    $(".nose").animate({
+                        width: '200px',
+                        height: '150px'
+                    }, 'slow');
+                    $(".mouth").animate({
+                        width: '300px',
+                        height: '250px'
+                    }, 'slow');
+                    $(".eyes").animate({
+                        width: '300px',
+                        height: '220px'
+                    }, 'slow');
+                    $(".hat").animate({
+                        width: '300px',
+                        height: '180px'
+                    }, 'slow');
+                });
+
+                $(".nose, .mouth, .eyes, .hat").hover(
+                    function() {
+                        increaseSize($(this));
+                    },
+                    function() {
+                        
+                    }
+                );
+
+                $("#save-button").click(function() {
+                    html2canvas(document.body, {
+                        logging: true,
+                        useCORS: true,
+                        allowTaint: true
+                    }).then(function(canvas) {
+                        var link = document.createElement('a');
+                        link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                        link.download = 'combined_image.png';
+                        link.click();
+                    });
+                });
+
+                $(".toggle-button").click(function(event) {
+                    event.stopPropagation();
+                    var targetClass = $(this).data("target");
+                    var targetElement = $("." + targetClass);
+                    targetElement.toggle();
+                });
+
+                $(document).on("click", ".body, .nose, .mouth, .eyes, .hat", function(event) {
+                    event.stopPropagation();
+                });
+            });
+
+        </script>
+
+    </body>
+
+</html>

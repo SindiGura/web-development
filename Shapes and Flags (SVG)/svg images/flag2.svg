@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="500">
+
+    <rect x="0" y="0" width="300" height="66" fill="#000000"/>
+
+    <rect x="0" y="66" width="300" height="66" fill="#ff0000"/>
+
+    <rect x="0" y="132" width="300" height="66" fill="#ffce00"/>
+
+    <text x="100" y="250" font-family="Arial" font-size="25" font-weight="bold" fill="black">My Flag</text>
+</svg>

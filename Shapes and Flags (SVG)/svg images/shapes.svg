@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300">
+
+    <polygon points="130,20 40,180 220,180" fill="#feff5b" stroke="black" stroke-width="3"/>
+    <text x="80" y="210" font-family="Arial" font-size="25" font-weight="bold" fill="black">Triangle</text>
+
+    <rect x="250" y="22" width="160" height="160" fill="#74c3d7" stroke="black" stroke-width="3"/>
+    <text x="250" y="210" font-family="Arial" font-size="25" font-weight="bold" fill="black">Quadrilateral</text>
+
+    <polygon points="530 20, 612 81, 580 181, 478 181, 445 80" fill="#ffc1ab" stroke="black" stroke-width="3"/>
+    <text x="470" y="210" font-family="Arial" font-size="25" font-weight="bold" fill="black">Pentagon</text>
+
+    <polygon points="720 20, 792 61, 792 143, 720 182, 648 140, 648 60" fill="#84d7a6" stroke="black" stroke-width="3"/>
+    <text x="670" y="210" font-family="Arial" font-size="25" font-weight="bold" fill="black">Hexagon</text>
+
+</svg>

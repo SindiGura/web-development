@@ -1,0 +1,17 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+

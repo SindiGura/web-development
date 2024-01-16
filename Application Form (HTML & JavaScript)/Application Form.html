@@ -1,0 +1,142 @@
+<!-- Sindi Gurakuqi-->
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles4.css">
+        <title>Portfolio</title>
+    </head>
+
+    <body>
+        <br><br><br>
+        <form id="userForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required>
+            <span id="nameCharCount" class="count"></span>
+            <span id="nameLetterCount" class="count"></span><br>
+    
+            <label for="address">Address:</label><br>
+            <input type="text" id="address" required>
+            <span id="addressCharCount" class="count"></span>
+            <span id="addressLetterCount" class="count"></span><br>
+    
+            <label for="phoneNumber">Phone Number (###) ###-####:</label><br>
+            <input type="text" id="phoneNumber" required>
+            <span id="phoneCharCount" class="count"></span>
+            <span id="phoneLetterCount" class="count"></span><br>
+    
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+    
+        <div id="output"></div>
+
+        <br><hr><br>
+
+        <div id="bookmarks"></div>
+    
+        <script>
+            function transformPhoneNb(phoneNumber) {
+                var nbParts = phoneNumber.split(/[\(\) \-]/);
+                var formattedPhoneNb = nbParts[1] + "-" + nbParts[3] + "-" + nbParts[4];
+                return formattedPhoneNb;
+            }
+    
+            function validateForm() {
+                var nameElem = document.getElementById("name");
+                var addressElem = document.getElementById("address");
+                var phoneElem = document.getElementById("phoneNumber");
+    
+                const nameExp = /^[a-zA-Z]+$/;
+                const phoneExp = /^\(\d{3}\) \d{3}-\d{4}$/;
+    
+                if (!nameElem.value.match(nameExp)) {
+                    alert("Invalid name. Name must contain only letters.");
+                    return false;
+                } else if (!phoneElem.value.match(phoneExp)) {
+                    alert("Invalid phone number. Please use the format (###) ###-####.");
+                    return false;
+                } else {
+                    displayUserInfo();
+                }
+            }
+    
+            function displayUserInfo() {
+                var name = document.getElementById("name").value;
+                var address = document.getElementById("address").value;
+                var phoneNumber = transformPhoneNb(document.getElementById("phoneNumber").value);
+                var outputDiv = document.getElementById("output");
+    
+                outputDiv.innerHTML = `
+                    <h2>Thank you, ${name}!</h2>
+                    <p>Your address: ${address}</p>
+                    <p>Your formatted phone number: ${phoneNumber}</p>`;
+            }
+
+            function countLetters(inputId, charCountId, letterCountId) {
+                var inputElem = document.getElementById(inputId);
+                var charCountElem = document.getElementById(charCountId);
+                var letterCountElem = document.getElementById(letterCountId);
+    
+                inputElem.addEventListener("input", function () {
+                    var charCount = this.value.length;
+                    var letterCount = this.value.replace(/[^a-zA-Z]/g, "").length;
+                    charCountElem.textContent = `Characters: ${charCount}`;
+                    letterCountElem.textContent = `Letters: ${letterCount}`;
+                });
+            }
+    
+            countLetters("name", "nameCharCount", "nameLetterCount");
+            countLetters("address", "addressCharCount", "addressLetterCount");
+            countLetters("phoneNumber", "phoneCharCount", "phoneLetterCount");
+    
+            
+            function createBookmarks() {
+                var bookmarksDiv = document.getElementById("bookmarks");
+
+                var bookmarks = ["https://www.example.com", "http://www.unsecure-example.com"];
+
+                bookmarksDiv.innerHTML = "<h2>Bookmarks:</h2>";
+
+                var secureImage = document.createElement("img");
+                secureImage.src = "images/secure_padlock.png";
+                secureImage.alt = "Secure Padlock";
+                secureImage.style.width = "50px";
+                secureImage.style.height = "50px";
+
+                var insecureImage = document.createElement("img");
+                insecureImage.src = "images/insecure_padlock.png";
+                insecureImage.alt = "Insecure Padlock";
+                insecureImage.style.width = "50px";
+                insecureImage.style.height = "50px";
+
+                var resultDiv = document.createElement("div"); // Create a new div for each bookmark
+
+                bookmarks.forEach(function (bookmark) {
+                    var bookmarkDiv = document.createElement("div"); // Create a new div for each bookmark
+                    bookmarkDiv.textContent = bookmark;
+
+                    if (bookmark.startsWith("https://")) {
+                        bookmarkDiv.appendChild(secureImage.cloneNode(true));
+                    } else {
+                        bookmarkDiv.appendChild(insecureImage.cloneNode(true));
+                    }
+
+                    resultDiv.appendChild(bookmarkDiv);
+                });
+
+                bookmarksDiv.appendChild(resultDiv);
+            }
+
+            createBookmarks();
+
+
+
+
+        </script>
+    
+    </body>
+
+</html>

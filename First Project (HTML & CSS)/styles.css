@@ -1,0 +1,81 @@
+body {
+    font-family: Cambria, sans-serif;
+    background-color: #ffffff;
+    color: #0f248d;
+    font-size: 16px;
+}
+
+#welcomeMessage
+{
+    margin-left: 300px;
+    font-size: 1.3vw; 
+}
+
+.toTheSide {
+    z-index: 500;
+    position: fixed;
+    width: 200px;
+    font-family: Cambria, sans-serif;
+    background-color: #d79898;
+    color: #0f248d;
+    padding: 10px; 
+    margin: 10px; 
+    border: 1px solid #000;
+    float: left;
+}
+
+.mainSec {
+    position: relative;
+    z-index: 200;
+    padding: 10px; 
+    margin: 10px; 
+    border: 1px solid #000;
+    background-color: #e9c5f7;
+    color: #0f248d;
+    text-align: center;
+}
+
+.mainSec pre {
+    font-size: 18px; 
+}
+
+.mainSec h3 {
+    font-size: 26px; 
+}
+
+.mainSec summary {
+    font-size: 18px; 
+}
+
+
+a:hover {
+    color: #85dedd; 
+    text-decoration: underline; 
+    font-weight: bold; 
+}
+
+#hiddenElement {
+    display: none; 
+}
+
+#toggleCheckbox:checked + #hiddenElement {
+    display: block; 
+}
+
+
+#blog
+{
+    padding: 10px; 
+    margin: 10px; 
+    border: 1px solid #450197;
+}
+
+#blog label
+{
+    font-size: 18px;
+}
+
+#blog div
+{
+    font-size: 18px;
+}

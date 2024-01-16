@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~Customer Registration</title>
+    <link rel="stylesheet" href="styles07.css">
+</head>
+<body>
+    <h1>Customer Registration</h1>
+    <form action="https://www2.cs.torontomu.ca/~sgurakuq/cgi-bin/lab07b.cgi" method="post" enctype="multipart/form-data">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" required><br>
+
+        <label for="street">Street Name:</label>
+        <input type="text" name="street" required><br>
+
+        <label for="city">City:</label>
+        <input type="text" name="city" required><br>
+
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" name="postalCode" pattern="[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d" placeholder="e.g., L0L 0L0" required><br>
+
+        <label for="province">Province:</label>
+        <select name="province" required>
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland and Labrador</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NU">Nunavut</option>
+            <option value="ON">Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="YT">Yukon</option>
+        </select><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" name="phoneNumber" pattern="\d{10}" placeholder="e.g., 1234567890" required><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="photo">Photograph:</label>
+        <input type="file" name="photo" accept="image/*"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
